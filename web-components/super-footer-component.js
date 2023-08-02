@@ -5,21 +5,14 @@ class SuperFooterComponent extends HTMLElement{
     }
 
     connectedCallback() {
-        fetch('./games-data.json').then(resp => resp.json()).then(res => this.render(res));
+        this.render();
     }
 
-    render(games) {
-        this.shadowRoot.innerHTML = '';
-        const ul = document.createElement('ul');
-        this.shadowRoot.appendChild(ul);
-
-        for (let i = 0; i < games.length; i++) {
-            const game = games[i];
-            const li = document.createElement('li');
-            li.appendChild(document.createTextNode(game.title));
-
-            ul.appendChild(li);
-        }
+    render() {
+        this.shadowRoot.innerHTML = `
+        <link rel="stylesheet" href="./web-components/super-footer-style.css">
+        <p>©Game Platform 2023</p>
+        `
     }
 }
 customElements.define('super-footer', SuperFooterComponent);
