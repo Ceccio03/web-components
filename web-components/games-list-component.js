@@ -30,10 +30,16 @@ class GamesListComponent extends HTMLElement {
             const game = games[i];
             
             const cardComponent = document.createElement('game-card');
+            cardComponent.addEventListener('card-clicked', (e) => this.removeGame(e.detail));
             cardComponent.game = game;
 
             mainContainer.appendChild(cardComponent);
         }
+    }
+
+    removeGame(title) {
+        this.gamesArray = this.gamesArray.filter(game => game.title !== title);
+        this.render(this.gamesArray);
     }
 }
 customElements.define('games-list', GamesListComponent);
