@@ -30,7 +30,7 @@ class GamesListComponent extends HTMLElement {
             const game = games[i];
             
             const cardComponent = document.createElement('game-card');
-            cardComponent.setAttribute('game-title', game.title);
+            cardComponent.game = game;
 
             mainContainer.appendChild(cardComponent);
         }
