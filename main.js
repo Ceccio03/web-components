@@ -15,8 +15,12 @@
 // header.setAttribute('title-color', color);
 // header.render();
 
-// function changeTitleColor() {
-//     const header = document.getElementById('header');
-//     header.setAttribute('title-color', 'pink');
-//     header.render();
-// }
+function changeTitleColor() {
+    const header = document.getElementById('header');
+    // header.setAttribute('title-color', 'pink');
+    if (header.getAttribute('site-theme') === 'light') {
+        header.setAttribute('site-theme', 'dark');
+    } else {
+        header.setAttribute('site-theme', 'light');
+    }
+}

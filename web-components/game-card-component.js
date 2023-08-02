@@ -60,7 +60,17 @@ class GameCardComponent extends HTMLElement{
                 </div>
             </div>
             `;
+
+            const deleteBtn = document.createElement('button');
+            deleteBtn.appendChild(document.createTextNode('Cancellami'));
+            this.shadowRoot.querySelector('.card').appendChild(deleteBtn);
+            deleteBtn.addEventListener('click', () => this.emitEvent());
         }
+    }
+
+    emitEvent() {
+        const customEvent = new CustomEvent('card-clicked', {detail: this.game.title});
+        this.dispatchEvent(customEvent);
     }
 }
 customElements.define('game-card', GameCardComponent);
